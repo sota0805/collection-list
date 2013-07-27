@@ -1,0 +1,22 @@
+/* -------------------------------------------
+[ About _layout.scss ]
+	- Author : Sota Yamashita
+	- Version : 0.1;
+	- Last Updated : Saturday, July 27, 2013
+	- Description : 
+------------------------------------------- */
+
+body {
+	background: rgb(227, 234, 238);
+	header {
+		width: 100%;
+		height: 58px;
+		background: rgb(51, 51, 51);
+	}
+	footer {
+		width: 100%;
+		height: 273px;
+		background: rgb(250, 250 ,250);
+		border-top: 1px solid rgb(221,221,221);
+	}
+}
