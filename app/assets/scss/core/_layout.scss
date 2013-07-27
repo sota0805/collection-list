@@ -18,6 +18,7 @@ body {
 		height: 86px;
 		background-color: rgb(241, 241, 241);
 		a {
+			margin-left: 10px;
 			span {
 				font-size: 35px;
 				color: rgb(85, 87 ,92);
@@ -36,11 +37,13 @@ body {
 				float: left;
 				width: 415px;
 				height: 219px;
+				margin-left: 10px;
 			}
 			ul {
 				float: right;
 				height: 20px;
 				margin-top: 170px;
+				margin-right: 10px;
 				li {
 					float: left;
 					list-style-type: none;
@@ -61,7 +64,7 @@ body {
 				float: right;
 				color:rgb(210,210,210);
 				font-size: 15px;
-				margin: 15px 0px 0 0px;
+				margin: 15px 12px 0 0px;
 			}
 		}
 	}
