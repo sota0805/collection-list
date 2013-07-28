@@ -9,9 +9,11 @@
 // @import File
 @import "core";
 
+/* ----------------------------------------- *\
+	$container
+\* ----------------------------------------- */
 #container {
 	position: relative;
-	margin: 50px auto;
 	padding: 0;
 	.item {
 		display: block;
@@ -21,10 +23,20 @@
 		float: left;
 		position: relative;
 		.userPic {
-			width: 100%;
+			width: 223px;
 			height: 190px;
 			background: white;
 			border-radius: 2px; 
+			display: block;
+			a {
+				display: block;
+				padding-bottom: 5px;
+				img {
+					width: 191px;
+					height: 167px;
+					margin: 13px 0 0 15px;
+				}
+			}
 		}
 		.userInfo {
 			h3 {

@@ -1,3 +1,15 @@
+<?php
+/**
+*
+* execute.php
+* Author: Sota Yamashita
+* Version: 0.1
+*
+*/
+
+
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,20 +19,9 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	<link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
-	<title>Collection</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/top-TRUNK.css">
-	<!-- Library -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/masonry.pkgd.min.js"></script>
-	<script>
-		$(function(){
-		  $('.commonContainer').masonry({
-		    // options
-		    itemSelector : '.item'
-		  });
-		});
-	</script>
+	<link href="assets/img/webmaker.ico" rel="icon" type="image/x-icon" />
+	<title>Collection | Save</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/save-TRUNK.css">
 </head>
 <body>
 <!-- For IE
@@ -39,85 +40,12 @@
 ================================================== -->
 <header>
 	<a href="#"><img src="assets/img/MakerPartyLogo.png" width="86" height="86" alt="Maker Party Logo"><span>Collection</span></a>
-	<button type="button" class="btn btn-primary">登録する</button>
 </header>
 
 <!-- Content
 ================================================== -->
 <div id="container">
 	<div class="commonContainer clearfix">
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<img src="#" alt="">
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
 	</div><!-- /commonContainer --> 
 </div><!-- /container -->
 

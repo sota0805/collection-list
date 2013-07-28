@@ -1,5 +1,5 @@
 /* -------------------------------------------
-[ About top-TRUNK.scss ]
+[ About save-TRUNK.scss ]
 	- Author : Sota Yamashita
 	- Version : 0.1;
 	- Last Updated : Saturday, July 27, 2013
@@ -4048,30 +4048,5 @@ td.visible-print {
 /* ----------------------------------------- *\
 	$container
 \* ----------------------------------------- */
-#container {
-  position: relative;
-  padding: 0; }
-  #container .item {
-    display: block;
-    width: 223px;
-    height: 223px;
-    margin: 5px;
-    float: left;
-    position: relative; }
-    #container .item .userPic {
-      width: 223px;
-      height: 190px;
-      background: white;
-      border-radius: 2px;
-      display: block; }
-      #container .item .userPic a {
-        display: block;
-        padding-bottom: 5px; }
-        #container .item .userPic a img {
-          width: 191px;
-          height: 167px;
-          margin: 13px 0 0 15px; }
-    #container .item .userInfo h3 {
-      position: relative;
-      top: -12px;
-      font-size: 15px; }
+button {
+  float: right; }
