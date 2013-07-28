@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<title>無題ドキュメント</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/masonry.pkgd.min.js"></script>
+<style>
+.item {
+width: 220px;
+height: 300px;
+margin: 5px;
+float: left;
+border: 1px solid #ccc;
+background: #eee;
+box-shadow: 0 2px 1px #eee;
+}
+
+.h01 {
+height: 100px;  
+}
+
+.h02 {
+height: 200px;
+}
+
+.h03 {
+height: 300px;  
+}
+
+.h04 {
+height: 400px;  
+}
+
+</style>
+<script>
+$(function(){
+  $('.commonContainer').masonry({
+    // options
+    itemSelector : '.item'
+  });
+});
+</script>
+</head>
+
+<body>
+
+<div id="container">
+  <div class="item">1</div>
+  <div class="item h01">2</div>
+  <div class="item">3</div>
+  <div class="item h01">4</div>
+  <div class="item h02">5</div>
+  <div class="item h02">6</div>
+  <div class="item h01">7</div>
+  <div class="item h03">8</div>
+  <div class="item">9</div>
+  <div class="item h04">10</div>
+  <div class="item h04">11</div>
+  <div class="item h01">12</div>
+  <div class="item h01">13</div>
+  <div class="item h02">14</div>
+  <div class="item h04">15</div>
+  <div class="item h03">16</div>
+</div>
+
+<nav id="page-nav">
+  <a href="masonry2.html"></a>
+</nav>
+
+</body>
+</html>
