@@ -31,10 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 	// urlが正しく入力されているかチェック
 	$url = null;
-
+	$pattern = "/(http|https):\/\/([0-9a-z-]+\.)makes\.org\//";
+	$subject = $url;
 
 	if ( !isset($_POST['url']) ) {
 		$errors['url'] = 'URLを正しく入力してください';
+	} elseif ( preg_match($pattern, $subject) !== false ){
+		$errors['url'] = 'ThimbleでパブリッシュされたURLを入力してください';
 	} else {
 		$url = $_POST['url'];
 	}
@@ -56,7 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		mysql_query($sql, $link);
 
 		mysql_close($link);
-		リダイレクト
+
+		// リダイレクト
 		header('Location: http://' . $_SERVER['HTTP_HOST']. '/collection-list/app/');
 	}
 }
@@ -120,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 						<input type="text" name="name" class="form-control" placeholder="Enter your name">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputUrl">Url</label>
+						<label for="exampleInputUrl">URL <span>例:<pre>https://YOUR_NAME.makes.org/thimble/YOUR_APP</pre></span></label>
 						<input type="url" name="url"class="form-control" id="exampleInputUrl" placeholder="Enter publised url">
         			</div>
         			<button type="submit" name="submit" class="btn btn-default">登録する</button>

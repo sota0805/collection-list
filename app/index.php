@@ -32,11 +32,21 @@ if(!$link) {
 //データベース選択
 mysql_select_db('collections',$link);
 
-// データベースから製作日をもとにデータを抽出
+// 投稿された内容を取得するSQLを作成して結果を取得
 $sql = "select * from user ORDER BY 'created_at' DESC";
-// 結果にデータを入力
 $result = mysql_query($sql, $link);
 
+// 取得した結果を$postsに格納
+$posts = array();
+if ( $result !== false && mysql_num_rows($result) ) {
+	while ( $post = mysql_fetch_assoc($result) ) {
+		$posts[] = $post;
+	}
+}
+
+//　取得結果を解放して接続を閉じる
+mysql_free_result($result);
+mysql_close($link);
 ?>
 
 
@@ -91,8 +101,8 @@ $result = mysql_query($sql, $link);
 <div id="container">
 	<div class="commonContainer clearfix">
 
-		<?php if ( $result !== false && mysql_num_rows($result) ): ?>
-			<?php while ( $post = mysql_fetch_assoc($result) ): ?>
+		<?php if ( count($post) > 0 ): ?>
+			<?php foreach ( $posts as $post ): ?>
 				<div class="item">
 					<div class="userPic">
 						<a href="<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>"><img src="#" alt=""></a>
@@ -101,7 +111,7 @@ $result = mysql_query($sql, $link);
 						<h3><?php echo htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?></h3>
 					</div><!-- /userInfo -->
 				</div><!-- /item -->
-			<?php endwhile; ?>
+			<?php endforeach; ?>
 		<?php endif; ?>
 
 	</div><!-- /commonContainer --> 
