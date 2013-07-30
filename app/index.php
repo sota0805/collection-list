@@ -23,8 +23,23 @@
 *
 */
 
+// $link = mysql_connect('localhost', 'user', '');
+$link = mysql_connect('localhost', 'root', 'root');
+if(!$link) {
+	die("データベースに接続出来ませんでした。");
+}
+
+//データベース選択
+mysql_select_db('collections',$link);
+
+// データベースから製作日をもとにデータを抽出
+$sql = "select * from user ORDER BY 'created_at' DESC";
+// 結果にデータを入力
+$result = mysql_query($sql, $link);
 
 ?>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -50,6 +65,8 @@
 	</script>
 </head>
 <body>
+
+
 <!-- For IE
 ================================================== -->
 <!--[if lt IE 7]>
@@ -66,7 +83,7 @@
 ================================================== -->
 <header>
 	<a href="./"><img src="assets/img/MakerPartyLogo.png" width="86" height="86" alt="Maker Party Logo"><span>Collection</span></a>
-	<button type="button" class="btn btn-primary"><a href="/collection-list/app/save.php">登録する</a></button>
+	<a class="btn btn-primary" href="/collection-list/app/save.php">登録する</a>
 </header>
 
 <!-- Content
@@ -74,77 +91,18 @@
 <div id="container">
 	<div class="commonContainer clearfix">
 
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
-
-		<div class="item">
-			<div class="userPic">
-				<a href=""><img src="#" alt=""></a>
-			</div><!-- /userPic -->
-			<div class="userInfo">
-				<h3>James Bond</h3>
-			</div><!-- /userInfo -->
-		</div><!-- /item -->
+		<?php if ( $result !== false && mysql_num_rows($result) ): ?>
+			<?php while ( $post = mysql_fetch_assoc($result) ): ?>
+				<div class="item">
+					<div class="userPic">
+						<a href="<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>"><img src="#" alt=""></a>
+					</div><!-- /userPic -->
+					<div class="userInfo">
+						<h3><?php echo htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?></h3>
+					</div><!-- /userInfo -->
+				</div><!-- /item -->
+			<?php endwhile; ?>
+		<?php endif; ?>
 
 	</div><!-- /commonContainer --> 
 </div><!-- /container -->
@@ -165,7 +123,7 @@
 		</ul>
 	</div><!-- /topFooter -->
 	<div id="bottomFooter">
-		<small>Copyright &copy; 2004–2013 Mozilla Japan. All rights reserved.</small>
+		<small>Copyright &copy; 2004 – 2013 Mozilla Japan. All rights reserved.</small>
 	</div><!-- /bottomFooter -->
 </footer>
 

@@ -7,19 +7,20 @@
 *
 */
 
-$link = mysql_connect('localhost', 'user', '');
+// $link = mysql_connect('localhost', 'user', '');
+$link = mysql_connect('localhost', 'root', 'root');
 if(!$link) {
 	die("データベースに接続出来ませんでした。");
 }
 
-//データベース選択
+// データベース選択
 mysql_select_db('collections',$link);
 
 $errors = array();
 
-//POSTで保存処理実行
+// POSTで保存処理実行
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	//名前が正しく入力されているかチェック
+	// 名前が正しく入力されているかチェック
 	$name = null;
 	if ( !isset($_POST['name']) || !strlen($_POST['name'])) {
 		$errors['name'] = '名前を正しく入力してください';
@@ -28,30 +29,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	} else {
 		$name = $_POST['name'];
 	}
-	//urlが正しく入力されているかチェック
+	// urlが正しく入力されているかチェック
 	$url = null;
-	$subject = "abcdef";
-	$pattern = '/.makes.org/';
-	$bool = preg_match($pattern, $subject);
+
 
 	if ( !isset($_POST['url']) ) {
 		$errors['url'] = 'URLを正しく入力してください';
-	} elseif ( !$bool ) {
-		$errors['url'] = 'ThimbleでパブリッシュされたURLを入力してください';
 	} else {
 		$url = $_POST['url'];
 	}
 
-	//エラーがなければ保存
+	// エラーがなければ保存
 	if (count($errors) === 0) {
+		// エスケープ処理
+		// SQLインジェクション対策
+		$name       = mysql_real_escape_string($name);
+		$url        = mysql_real_escape_string($url);
+		$created_at = date('Y-m-d H:i:s'); // 新規レコード作成時間
+
 		//保存するためのSQL文を作成
-		$sql = "INSERT INTO 'user' ('name', 'url', 'created_at') VALUES ('"
-			.mysql_real_escape_string($name) . "', '"
-			.mysql_real_escape_string($url) . "', '"
-			.date('Y-m-d H:i:s') . "' )";
+		$sql = " INSERT INTO user "
+			. " (name, url, created_at ) "
+			. " VALUES ( '$name', '$url', '$created_at')  ";
 
 		//保存する
 		mysql_query($sql, $link);
+
+		mysql_close($link);
+		リダイレクト
+		header('Location: http://' . $_SERVER['HTTP_HOST']. '/collection-list/app/');
 	}
 }
 
@@ -76,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	</script>
 </head>
 <body>
+
 <!-- For IE
 ================================================== -->
 <!--[if lt IE 7]>
@@ -139,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		</ul>
 	</div><!-- /topFooter -->
 	<div id="bottomFooter">
-		<small>Copyright &copy; 2004–2013 Mozilla Japan. All rights reserved.</small>
+		<small>Copyright &copy; 2004 – 2013 Mozilla Japan. All rights reserved.</small>
 	</div><!-- /bottomFooter -->
 </footer>
 
