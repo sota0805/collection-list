@@ -8,7 +8,7 @@
 */
 
 // $link = mysql_connect('localhost', 'user', '');
-$link = mysql_connect('us-cdbr-east-04.cleardb.com', 'b79a352503db8a', 'e371739d');
+$link = mysql_connect('localhost', 'root', 'root');
 if(!$link) {
 	die("データベースに接続出来ませんでした。");
 }
@@ -31,16 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 	// urlが正しく入力されているかチェック
 	$url = null;
-	$pattern = "/^(https?|ftp)(:\/\/)(.*)\.makes\.org\/thimble\/(.*)/";
+	$pattern = "/(http|https):\/\/([0-9a-z-]+\.)makes\.org\//";
 	$subject = $url;
 
 	if ( !isset($_POST['url']) ) {
 		$errors['url'] = 'URLを正しく入力してください';
-	} 
-	//elseif ( preg_match($pattern, $subject) !== false ){
-	//	$errors['url'] = 'ThimbleでパブリッシュされたURLを入力してください';
-	//} 
-	else {
+	} elseif ( preg_match($pattern, $subject) !== false ){
+		$errors['url'] = 'ThimbleでパブリッシュされたURLを入力してください';
+	} else {
 		$url = $_POST['url'];
 	}
 
@@ -63,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		mysql_close($link);
 
 		// リダイレクト
-		header('Location: http://' . $_SERVER['HTTP_HOST']. '/app/');
+		header('Location: http://' . $_SERVER['HTTP_HOST']. '/collection-list/app/');
 	}
 }
 

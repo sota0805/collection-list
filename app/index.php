@@ -24,7 +24,7 @@
 */
 
 // $link = mysql_connect('localhost', 'user', '');
-$link = mysql_connect('us-cdbr-east-04.cleardb.com', 'b79a352503db8a', 'e371739d');
+$link = mysql_connect('localhost', 'root', 'root');
 if(!$link) {
 	die("データベースに接続出来ませんでした。");
 }
@@ -93,7 +93,7 @@ mysql_close($link);
 ================================================== -->
 <header>
 	<a href="./"><img src="assets/img/MakerPartyLogo.png" width="86" height="86" alt="Maker Party Logo"><span>Collection</span></a>
-	<a class="btn btn-primary" href="/app/save.php">登録する</a>
+	<a class="btn btn-primary" href="/collection-list/app/save.php">登録する</a>
 </header>
 
 <!-- Content
@@ -112,8 +112,6 @@ mysql_close($link);
 					</div><!-- /userInfo -->
 				</div><!-- /item -->
 			<?php endforeach; ?>
-		<?php else: ?>
-			<h1 style="text-align:center;">Be the first of your friends to share yours.</h1>
 		<?php endif; ?>
 
 	</div><!-- /commonContainer --> 
@@ -130,7 +128,7 @@ mysql_close($link);
 			<li><a href="#">Cookies</a></li>
 			<li><a href="#">Send Feedback</a></li>
 			<li id="custom-tweet-button"> 
-			<a href="https://twitter.com/share?url=http://tranquil-shelf-7327.herokuapp.com/app/" target="_blank">Tweet</a>
+			<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com%2Fpages%2Ftweet-button" target="_blank">Tweet</a>
 			</li>
 		</ul>
 	</div><!-- /topFooter -->
