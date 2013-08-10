@@ -1,4 +1,4 @@
-collection-list
+MakerParty Gallery
 ===============
 
 A lot of masterpieces which is made of Thimble.
