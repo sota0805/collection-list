@@ -105,7 +105,9 @@ mysql_close($link);
 			<?php foreach ( $posts as $post ): ?>
 				<div class="item">
 					<div class="userPic">
-						<a href="<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>"><img src="#" alt=""></a>
+						<a href="<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>">
+                            <img src="http://capture.heartrails.com/medium?<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?>">
+                        </a>
 					</div><!-- /userPic -->
 					<div class="userInfo">
 						<h3><?php echo htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?></h3>
