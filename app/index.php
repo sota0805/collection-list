@@ -24,7 +24,7 @@
 */
 
 // $link = mysql_connect('localhost', 'user', '');
-$link = mysql_connect('localhost', 'root', 'root');
+$link = mysql_connect('SERVER_NAME', 'USER_NAME', 'PASSWORD');
 if(!$link) {
 	die("データベースに接続出来ませんでした。");
 }
