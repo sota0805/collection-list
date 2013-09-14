@@ -8,13 +8,13 @@
 */
 
 // $link = mysql_connect('localhost', 'user', '');
-$link = mysql_connect('localhost', 'root', 'root');
+$link = mysql_connect('us-cdbr-east-04.cleardb.com', 'b79a352503db8a', 'e371739d');
 if(!$link) {
 	die("データベースに接続出来ませんでした。");
 }
 
 // データベース選択
-mysql_select_db('collections',$link);
+mysql_select_db('heroku_ef6486c71f9eaba',$link);
 
 $errors = array();
 
@@ -31,14 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 	// urlが正しく入力されているかチェック
 	$url = null;
-	$pattern = "/(http|https):\/\/([0-9a-z-]+\.)makes\.org\//";
+	$pattern = "/^(https?|ftp)(:\/\/)(.*)\.makes\.org\/thimble\/(.*)/";
 	$subject = $url;
 
 	if ( !isset($_POST['url']) ) {
 		$errors['url'] = 'URLを正しく入力してください';
-	} elseif ( preg_match($pattern, $subject) !== false ){
-		$errors['url'] = 'ThimbleでパブリッシュされたURLを入力してください';
-	} else {
+	} 
+	//elseif ( preg_match($pattern, $subject) !== false ){
+	//	$errors['url'] = 'ThimbleでパブリッシュされたURLを入力してください';
+	//} 
+	else {
 		$url = $_POST['url'];
 	}
 
@@ -61,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		mysql_close($link);
 
 		// リダイレクト
-		header('Location: http://' . $_SERVER['HTTP_HOST']. '/collection-list/app/');
+		header('Location: http://' . $_SERVER['HTTP_HOST']. '/');
 	}
 }
 
@@ -140,10 +142,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<div id="topFooter">
 		<img src="assets/img/MakerPartyWordmark.png" alt="Maker Party logo" >
 		<ul>
-			<li><a href="#">Privacy</a></li>
-			<li><a href="#">Terms</a></li>
-			<li><a href="#">Cookies</a></li>
-			<li><a href="#">Send Feedback</a></li>
+			<li><a href="license.html">License</a></li>
+			<li><a href="mailto:sota.yamashita@gmail.com">Send Feedback</a></li>
 			<li id="custom-tweet-button"> 
 			<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com%2Fpages%2Ftweet-button" target="_blank">Tweet</a>
 			</li>
@@ -153,7 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<small>Copyright &copy; 2004 – 2013 Mozilla Japan. All rights reserved.</small>
 	</div><!-- /bottomFooter -->
 </footer>
-
 
 
 

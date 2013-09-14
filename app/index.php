@@ -23,14 +23,22 @@
 *
 */
 
+
+// memcached
+include('MemcacheSASL.php');
+$m = new MemcacheSASL;
+$m->addServer($_ENV["mc3.dev.ec2.memcachier.com"], '11211');
+$m->setSaslAuthData($_ENV["b736cb"], $_ENV["38bbb879f0fd3939a71a"]);
+
+
 // $link = mysql_connect('localhost', 'user', '');
-$link = mysql_connect('SERVER_NAME', 'USER_NAME', 'PASSWORD');
+$link = mysql_connect('us-cdbr-east-04.cleardb.com', 'b79a352503db8a', 'e371739d');
 if(!$link) {
 	die("データベースに接続出来ませんでした。");
 }
 
 //データベース選択
-mysql_select_db('collections',$link);
+mysql_select_db('heroku_ef6486c71f9eaba',$link);
 
 // 投稿された内容を取得するSQLを作成して結果を取得
 $sql = "select * from user ORDER BY 'created_at' DESC";
@@ -67,7 +75,7 @@ mysql_close($link);
 	<script type="text/javascript" src="assets/js/masonry.pkgd.min.js"></script>
 	<script>
 		$(function(){
-		  $('.commonContainer').masonry({
+		  $('.specialContainer').masonry({
 		    // options
 		    itemSelector : '.item'
 		  });
@@ -75,6 +83,7 @@ mysql_close($link);
 	</script>
 </head>
 <body>
+<?php include_once("analyticstracking.php") ?>
 
 
 <!-- For IE
@@ -93,28 +102,33 @@ mysql_close($link);
 ================================================== -->
 <header>
 	<a href="./"><img src="assets/img/MakerPartyLogo.png" width="86" height="86" alt="Maker Party Logo"><span>Collection</span></a>
-	<a class="btn btn-primary" href="/collection-list/app/save.php">登録する</a>
+	<a class="btn btn-primary" href="/save.php">登録する</a>
 </header>
 
 <!-- Content
 ================================================== -->
 <div id="container">
-	<div class="commonContainer clearfix">
+	<div class="specialContainer clearfix">
 
 		<?php if ( count($post) > 0 ): ?>
 			<?php foreach ( $posts as $post ): ?>
 				<div class="item">
 					<div class="userPic">
-						<a href="<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>">
+
+						<a href="<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>" class="link">
                             <img src="http://capture.heartrails.com/medium?<?php echo htmlspecialchars($post['url'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?>">
                         </a>
+
 					</div><!-- /userPic -->
 					<div class="userInfo">
 						<h3><?php echo htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?></h3>
 					</div><!-- /userInfo -->
 				</div><!-- /item -->
-			<?php endforeach; ?>
+			<?php endforeach; ?>	
+		<?php else: ?>
+				<h1 style="text-align:center;">Be the first of your friends to share yours.</h1>
 		<?php endif; ?>
+
 
 	</div><!-- /commonContainer --> 
 </div><!-- /container -->
@@ -125,12 +139,10 @@ mysql_close($link);
 	<div id="topFooter">
 		<img src="assets/img/MakerPartyWordmark.png" alt="Maker Party logo" >
 		<ul>
-			<li><a href="#">Privacy</a></li>
-			<li><a href="#">Terms</a></li>
-			<li><a href="#">Cookies</a></li>
-			<li><a href="#">Send Feedback</a></li>
+			<li><a href="license.html">License</a></li>
+			<li><a href="mailto:sota.yamashita@gmail.com">Send Feedback</a></li>
 			<li id="custom-tweet-button"> 
-			<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com%2Fpages%2Ftweet-button" target="_blank">Tweet</a>
+			<a href="https://twitter.com/share?url=http://tranquil-shelf-7327.herokuapp.com/app/" target="_blank">Tweet</a>
 			</li>
 		</ul>
 	</div><!-- /topFooter -->
@@ -138,8 +150,6 @@ mysql_close($link);
 		<small>Copyright &copy; 2004 – 2013 Mozilla Japan. All rights reserved.</small>
 	</div><!-- /bottomFooter -->
 </footer>
-
-
 
 
 </body>

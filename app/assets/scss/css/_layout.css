@@ -1,0 +1,78 @@
+/* ----------------------------------------- *\
+	$commonContainer
+\* ----------------------------------------- */
+.commonContainer {
+  margin: 0 auto;
+  width: 970px;
+  position: relative;
+  left: 50%;
+  margin-left: -470px;
+  min-height: 500px;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+body {
+  background: #f0f0f0 !important;
+  /* ----------------------------------------- *\
+  	$header
+  \* ----------------------------------------- */
+  /* ----------------------------------------- *\
+  	$footer
+  \* ----------------------------------------- */ }
+  body header {
+    width: 100%;
+    height: 86px;
+    background: white; }
+    body header a {
+      margin-left: 10px;
+      text-decoration: none; }
+      body header a span {
+        font-size: 35px;
+        color: #55575c;
+        position: relative;
+        top: 8px; }
+    body header button {
+      float: right;
+      margin-right: 25px;
+      margin-top: 25px; }
+      body header button a {
+        text-decoration: none;
+        color: white;
+        padding-right: 5px;
+        display: block; }
+        body header button a:hover {
+          color: whitesmoke;
+          text-decoration: none; }
+  body footer {
+    width: 100%;
+    border-top: 1px solid #dddddd; }
+    body footer #topFooter {
+      background: whitesmoke;
+      height: 224px; }
+      body footer #topFooter img {
+        float: left;
+        width: 415px;
+        height: 219px;
+        margin-left: 10px; }
+      body footer #topFooter ul {
+        float: right;
+        height: 20px;
+        margin-top: 170px;
+        margin-right: 10px; }
+        body footer #topFooter ul li {
+          float: left;
+          list-style-type: none; }
+          body footer #topFooter ul li a {
+            text-decoration: none;
+            display: block;
+            font-size: 20px;
+            padding: 10px 10px; }
+    body footer #bottomFooter {
+      border-top: 1px solid #dddddd;
+      background: #2d2d2d;
+      height: 50px; }
+      body footer #bottomFooter small {
+        float: right;
+        color: #d2d2d2;
+        font-size: 15px;
+        margin: 15px 12px 0 0px; }
