@@ -3,7 +3,7 @@ MakerParty Gallery -  Mozilla Japan
 
 
 
-## Install library
+## Install
 
 Install Composer:
 <pre> curl -sS https://getcomposer.org/installer | php </pre>
