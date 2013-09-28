@@ -2,7 +2,8 @@ MakerParty Gallery -  Mozilla Japan
 ===============
 
 
-### Install Composer
+
+## Install library
 
 Install Composer:
 <pre> curl -sS https://getcomposer.org/installer | php </pre>
@@ -10,4 +11,3 @@ Install Composer:
 Install library:
 <pre> php composer.phar install </pre>
 
-A lot of masterpieces which is made of Thimble.
