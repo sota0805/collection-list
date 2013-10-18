@@ -1,2 +1,5 @@
 .composer.pahr
 vendor/
+.DS_Store
+.sass-cache/
+.idea/
