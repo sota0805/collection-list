@@ -8,9 +8,8 @@
 	"require": {
   		"zendframework/zend-config": "2.0.*",
     		"zendframework/zend-http": "2.0.*",
-		"vipsoft/unzip": "dev-master",
 		"slim/slim": "2.*",
-                "entomb/slim-json-api": "dev-master"
+                "codegyre/phantomshot": "dev-master"
 	},
 	"require-dev": {
         	"phpunit/phpunit": "3.7.*"

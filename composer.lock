@@ -3,53 +3,52 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c10087384085e17dc91cbde80bc0249a",
+    "hash": "23f70517ae15d74d2d4b62e79f447de9",
     "packages": [
         {
-            "name": "entomb/slim-json-api",
+            "name": "codegyre/phantomshot",
             "version": "dev-master",
+            "target-dir": "Codegyre/PhantomShot",
             "source": {
                 "type": "git",
-                "url": "https://github.com/entomb/slim-json-api.git",
-                "reference": "06348bf0692d5d4a39e1be8c496bb981229350e3"
+                "url": "https://github.com/Codegyre/phantomshot.git",
+                "reference": "73d336e9f3398d1c2d10f2f2a9752c03ddcb81a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/entomb/slim-json-api/zipball/06348bf0692d5d4a39e1be8c496bb981229350e3",
-                "reference": "06348bf0692d5d4a39e1be8c496bb981229350e3",
+                "url": "https://api.github.com/repos/Codegyre/phantomshot/zipball/73d336e9f3398d1c2d10f2f2a9752c03ddcb81a8",
+                "reference": "73d336e9f3398d1c2d10f2f2a9752c03ddcb81a8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.3.3"
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "jsonAPI/"
-                ]
+                "psr-0": {
+                    "Codegyre\\PhantomShot\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL 3.0"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Jonathan Tavares",
-                    "email": "the.entomb@gmail.com",
-                    "homepage": "https://github.com/entomb",
-                    "role": "Developer"
+                    "name": "Nick Palamarchuk",
+                    "email": "lividgreen@codegyre.com"
+                },
+                {
+                    "name": "Codegyre developers team",
+                    "homepage": "http://codegyre.com"
                 }
             ],
-            "description": "Slim extension to implement fast JSON API's",
-            "homepage": "https://github.com/entomb/slim-json-api",
+            "description": "PHP tool to make web-shots using PhantomJS",
+            "homepage": "http://codegyre.com",
             "keywords": [
-                "api",
-                "json",
-                "middleware",
-                "slim",
-                "view"
+                "webshot"
             ],
-            "time": "2013-09-26 23:00:52"
+            "time": "2013-07-25 23:45:14"
         },
         {
             "name": "slim/slim",
@@ -94,50 +93,6 @@
                 "router"
             ],
             "time": "2013-09-27 01:48:57"
-        },
-        {
-            "name": "vipsoft/unzip",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vipsoft/Unzip.git",
-                "reference": "2c6a62cd9b7833e9825a542767954465fc03f569"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vipsoft/Unzip/zipball/2c6a62cd9b7833e9825a542767954465fc03f569",
-                "reference": "2c6a62cd9b7833e9825a542767954465fc03f569",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "VIPSoft\\Unzip": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthon Pang",
-                    "email": "apang@softwaredevelopment.ca",
-                    "role": "developer"
-                }
-            ],
-            "description": "Unzip library",
-            "homepage": "http://github.com/vipsoft/",
-            "keywords": [
-                "pclzip",
-                "unzip",
-                "zip",
-                "ziparchive"
-            ],
-            "time": "2013-07-17 17:02:02"
         },
         {
             "name": "zendframework/zend-config",
@@ -968,8 +923,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "vipsoft/unzip": 20,
-        "entomb/slim-json-api": 20
+        "codegyre/phantomshot": 20
     },
     "platform": [
 
