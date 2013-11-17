@@ -1,11 +1,10 @@
 MakerParty Gallery -  Mozilla Japan
 ===============
-[![Build Status](https://secure.travis-ci.org/USERNAME/REPOSITRY)](http://travis-ci.org/USERNAME/REPOSITRY)
+[![Build Status](https://secure.travis-ci.org/sota0805/mozilla-makerparty-gallery)](http://travis-ci.org/sota0805/mozilla-makerparty-gallery)
 
 
 
 ## Getting Started
-
 ### Install
 
 You may install with Composer (recommended) or manually.
@@ -21,10 +20,11 @@ $ php composer.phar install
 You need **PHP >= 5.4.0**. If you use encrypted cookies, you'll also need the `mcrypt` extension.
 
 
+
+
+
+
 ## How to Contribute
-
-
-
 ### Pull Requests
 
 1. Fork this repository  
@@ -34,16 +34,19 @@ You need **PHP >= 5.4.0**. If you use encrypted cookies, you'll also need the `m
 It is very important to separate new features or improvements into separate feature branches, and to send a pull  
 request for each branch. This allows me to review and pull in new features or improvements individually.
 
+
 ### Style Guide
 
 All pull requests must adhere to the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) standard.
-
 ### Unit Testing
 
 All pull requests must be accompanied by passing unit tests and complete code coverage. The project uses  
 `phpunit` for testing.
 
 [Learn about PHPUnit](https://github.com/sebastianbergmann/phpunit/)
+
+
+
 
 ## License
 
