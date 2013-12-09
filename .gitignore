@@ -1,5 +1,7 @@
-.composer.pahr
-vendor/
+/bootstrap/compiled.php
+/vendor
+composer.phar
+composer.lock
 .DS_Store
-.sass-cache/
+Thumbs.db
 .idea/
