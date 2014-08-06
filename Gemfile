@@ -16,11 +16,11 @@ gem 'unicorn'
 
 
 ## development
-group :development :test do
-  gem 'pry',
-  gem 'guard',
-  gem 'guard-rspec',
-  gem 'spring',
+group :development, :test do
+  gem 'pry'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'spring'
   gem 'debugger'
   gem 'capistrano-rails'
 end
@@ -32,11 +32,12 @@ group :test do
   gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'factory_girl'
-  gem 'rspc'
+  gem 'rspec'
 end
 
+
 group :doc do
-  gem 'sdoc', '~> 0.4.0',
+  gem 'sdoc', '~> 0.4.0'
 end
 
 
